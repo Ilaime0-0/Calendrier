@@ -82,9 +82,18 @@ body {
     background:
         linear-gradient(
             145deg,
-            rgba(40, 33, 46, 0.96),
-            rgba(18, 15, 22, 0.98)
+            rgba(53, 45, 57, 0.94),
+            rgba(38, 32, 42, 0.96)
         );
+
+    border: 1px solid #75677a;
+
+    box-shadow:
+        0 20px 60px rgba(45, 35, 50, 0.35),
+        inset 0 0 40px rgba(220, 205, 225, 0.04);
+
+    padding: 28px;
+}
     border: 1px solid #765c82;
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.6),
