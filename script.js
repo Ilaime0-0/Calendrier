@@ -278,5 +278,12 @@ nextMonth.addEventListener("click", function() {
    LANCER LE CALENDRIER
    ────────────────────────────────────────────── */
 
+/* ──────────────────────────────────────────────
+   TEST
+   ────────────────────────────────────────────── */
+
+console.log("MON SCRIPT FONCTIONNE");
+document.getElementById("monthYear").textContent = "TEST OK 💜";
+
 renderCalendar();
 ```
