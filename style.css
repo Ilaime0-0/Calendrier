@@ -587,3 +587,313 @@ footer span {
         gap: 12px;
     }
 }
+```css
+/* ══════════════════════════════════════════════════════════════
+   ♡ CALENDRIER — PALETTE VICTORIENNE GOTHIQUE ♡
+   Crème · Rose poudré · Lavande · Gris perle · Bordeaux
+   ══════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════════
+   🤍 CADRE PRINCIPAL DU CALENDRIER
+   ══════════════════════════════════════════════════════════════ */
+
+.calendar {
+    background: #fffaf5;
+    border: 2px solid #eaded4;
+    box-shadow:
+        0 8px 30px rgba(80, 50, 60, 0.12),
+        inset 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+
+/* Petit espace entre les cases */
+
+.calendar-days {
+    gap: 5px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   📅 CASES DES JOURS
+   ══════════════════════════════════════════════════════════════ */
+
+.day {
+    background: #fffdf9;
+    border: 1px solid #eadfd7;
+    border-radius: 8px;
+
+    min-height: 105px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Petit effet au passage de la souris */
+
+.day:hover {
+    background: #fff8f5;
+    border-color: #d8bfc4;
+    transform: translateY(-1px);
+}
+
+
+/* Jours des mois voisins */
+
+.day.other-month {
+    background: #f5eee9;
+    border-color: #eee4de;
+    opacity: 0.55;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   🔢 NUMÉROS DES JOURS
+   ══════════════════════════════════════════════════════════════ */
+
+.day-number {
+    color: #55434a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* Aujourd'hui */
+
+.day.today {
+    background: #fff1f4;
+    border: 2px solid #c995a4;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   🩷 ECON 60801 — ROSE POUDRÉ
+   ══════════════════════════════════════════════════════════════ */
+
+.event.course {
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 6px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    background: #f3d8df;
+    color: #633d49;
+    border-left: 4px solid #b9788c;
+
+    box-shadow: 0 2px 5px rgba(90, 50, 60, 0.08);
+}
+
+
+/* ECON 60803 — lavande */
+
+.event.course:nth-of-type(2) {
+    background: #e5def2;
+    color: #514467;
+    border-left-color: #9582b8;
+}
+
+
+/* ECON 60804 — gris perle */
+
+.event.course:nth-of-type(3) {
+    background: #e3e1e5;
+    color: #4e4a52;
+    border-left-color: #8d8892;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   🖤 EXAMENS — BORDEAUX / PRUNE
+   ══════════════════════════════════════════════════════════════ */
+
+.event.exam {
+    border-radius: 6px;
+    padding: 7px 8px;
+    margin-top: 7px;
+
+    background: #ead1d9;
+    color: #542632;
+
+    border-left: 4px solid #783747;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 700;
+
+    box-shadow:
+        0 2px 6px rgba(70, 30, 40, 0.12);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   🌸 ÉTUDES
+   ══════════════════════════════════════════════════════════════ */
+
+.event.study {
+    background: #f5e5ec;
+    color: #674b58;
+    border-left: 4px solid #c89aaa;
+
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 6px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ✏️ EXERCICES
+   ══════════════════════════════════════════════════════════════ */
+
+.event.exercise {
+    background: #eee7f5;
+    color: #5d506c;
+    border-left: 4px solid #a898bc;
+
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 6px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   💼 TRAVAIL / ASSIGNMENT
+   ══════════════════════════════════════════════════════════════ */
+
+.event.assignment {
+    background: #eee9df;
+    color: #62594b;
+    border-left: 4px solid #a99a7c;
+
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 6px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ♡ LÉGENDE
+   ══════════════════════════════════════════════════════════════ */
+
+.legend {
+    background: #fffaf5;
+    border: 1px solid #eaded4;
+    color: #5b4850;
+}
+
+
+/* Petits points de la légende */
+
+.dot.course {
+    background: #b9788c;
+}
+
+.dot.study {
+    background: #c89aaa;
+}
+
+.dot.exercise {
+    background: #a898bc;
+}
+
+.dot.exam {
+    background: #783747;
+}
+
+.dot.assignment {
+    background: #a99a7c;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   📱 VERSION TÉLÉPHONE
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+
+    .calendar {
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .calendar-days {
+        gap: 3px;
+    }
+
+    .day {
+        min-height: 85px;
+        padding: 5px;
+        border-radius: 6px;
+    }
+
+    .day-number {
+        font-size: 15px;
+    }
+
+    .event.course,
+    .event.study,
+    .event.exercise,
+    .event.exam,
+    .event.assignment {
+
+        font-size: 11px;
+        line-height: 1.15;
+
+        padding: 5px 4px;
+        margin-top: 4px;
+
+        border-left-width: 3px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .weekdays {
+        font-size: 12px;
+    }
+
+    .calendar-top h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   📱 TRÈS PETITS ÉCRANS
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 430px) {
+
+    .calendar {
+        padding: 6px;
+    }
+
+    .day {
+        min-height: 75px;
+        padding: 4px;
+    }
+
+    .day-number {
+        font-size: 14px;
+    }
+
+    .event.course,
+    .event.study,
+    .event.exercise,
+    .event.exam,
+    .event.assignment {
+        font-size: 9px;
+        padding: 4px 3px;
+    }
+
+    .weekdays {
+        font-size: 10px;
+    }
+}
