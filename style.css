@@ -1,40 +1,28 @@
-```css
-/* ╔══════════════════════════════════════════════╗
-   🖤🪻 VICTORIAN MAUVE STUDY CALENDAR
-   Grey Mauve • Powder Mauve • Black
-   ╚══════════════════════════════════════════════╝ */
-
-
 * {
     box-sizing: border-box;
 }
-
-
-/* ══════════════════════════════════════════════
-   🌫️ FOND PRINCIPAL
-   ══════════════════════════════════════════════ */
 
 body {
     margin: 0;
     min-height: 100vh;
 
     background:
-        linear-gradient(
-            135deg,
-            #d8ced9 0%,
-            #cbbdce 35%,
-            #b9a8bc 65%,
-            #a895aa 100%
+        radial-gradient(
+            circle at top,
+            #ddd2df 0%,
+            #c9bccb 35%,
+            #afa1b2 70%,
+            #958799 100%
         );
 
-    color: #29232b;
+    color: #302934;
 
     font-family: "Cormorant Garamond", serif;
 }
 
 
 /* ══════════════════════════════════════════════
-   🕸️ DENTELLE
+   DENTELLE
    ══════════════════════════════════════════════ */
 
 .lace {
@@ -45,26 +33,26 @@ body {
             90deg,
             transparent 0px,
             transparent 7px,
-            #e0d4e1 8px,
+            #8e7895 8px,
             transparent 9px,
             transparent 16px
         );
 
-    opacity: 0.65;
+    opacity: 0.45;
 }
 
 .lace-top {
-    border-bottom: 1px solid #796a7d;
+    border-bottom: 1px solid #8e7895;
 }
 
 .lace-bottom {
     margin-top: 35px;
-    border-top: 1px solid #796a7d;
+    border-top: 1px solid #8e7895;
 }
 
 
 /* ══════════════════════════════════════════════
-   🖤 CONTENEUR
+   CONTENEUR
    ══════════════════════════════════════════════ */
 
 .calendar-container {
@@ -74,7 +62,7 @@ body {
 
 
 /* ══════════════════════════════════════════════
-   🪻 TITRE
+   TITRE
    ══════════════════════════════════════════════ */
 
 .header {
@@ -93,10 +81,10 @@ body {
 
     letter-spacing: 3px;
 
-    color: #302934;
+    color: #55445b;
 
     text-shadow:
-        0 2px 4px rgba(255, 255, 255, 0.25);
+        0 0 15px rgba(255, 255, 255, 0.35);
 }
 
 .subtitle {
@@ -106,13 +94,13 @@ body {
 
     letter-spacing: 3px;
 
-    color: #514652;
+    color: #75657a;
 
     text-transform: lowercase;
 }
 
 .ornament {
-    color: #514354;
+    color: #76567e;
 
     font-size: 24px;
 
@@ -121,7 +109,7 @@ body {
 
 
 /* ══════════════════════════════════════════════
-   🖤 GRAND CALENDRIER
+   GRAND CADRE DU CALENDRIER
    ══════════════════════════════════════════════ */
 
 .calendar {
@@ -129,27 +117,25 @@ body {
     background:
         linear-gradient(
             145deg,
-            #514656 0%,
-            #49404d 50%,
-            #3e3542 100%
+            #f5efe7,
+            #eee5dc
         );
 
-    border: 1px solid #a99aaa;
+    border: 1px solid #b9a7b5;
 
     box-shadow:
-        0 20px 60px rgba(45, 35, 50, 0.35),
-        inset 0 0 50px rgba(230, 220, 235, 0.06);
+        0 20px 60px rgba(70, 55, 75, 0.25),
+        inset 0 0 35px rgba(120, 100, 120, 0.08);
 
     padding: 28px;
 }
 
 
 /* ══════════════════════════════════════════════
-   🌙 NAVIGATION DES MOIS
+   MOIS
    ══════════════════════════════════════════════ */
 
 .calendar-top {
-
     display: flex;
 
     align-items: center;
@@ -171,7 +157,7 @@ body {
 
     font-weight: 500;
 
-    color: #e1d6e3;
+    color: #5b485f;
 
     text-transform: capitalize;
 }
@@ -180,14 +166,14 @@ body {
 
     margin: 2px 0 0;
 
-    color: #c4b0c8;
+    color: #95759d;
 
     font-size: 18px;
 }
 
 
 /* ══════════════════════════════════════════════
-   ❮ ❯ BOUTONS
+   BOUTONS
    ══════════════════════════════════════════════ */
 
 .nav-button {
@@ -196,11 +182,11 @@ body {
 
     height: 45px;
 
-    border: 1px solid #9c899f;
+    border: 1px solid #b09aae;
 
-    background: #332b36;
+    background: #e5d9e3;
 
-    color: #e0d2e2;
+    color: #634d69;
 
     font-size: 18px;
 
@@ -214,16 +200,16 @@ body {
 
 .nav-button:hover {
 
-    background: #66576a;
+    background: #d5c3d7;
 
-    border-color: #d1bed5;
+    border-color: #806489;
 
     transform: translateY(-2px);
 }
 
 
 /* ══════════════════════════════════════════════
-   📅 JOURS DE LA SEMAINE
+   JOURS DE LA SEMAINE
    ══════════════════════════════════════════════ */
 
 .weekdays {
@@ -233,7 +219,8 @@ body {
     grid-template-columns:
         repeat(7, 1fr);
 
-    border-bottom: 1px solid #8b798e;
+    border-bottom:
+        1px solid #c4b2c1;
 
     margin-bottom: 8px;
 }
@@ -244,7 +231,7 @@ body {
 
     text-align: center;
 
-    color: #d4c6d7;
+    color: #705b75;
 
     font-size: 17px;
 
@@ -255,7 +242,7 @@ body {
 
 
 /* ══════════════════════════════════════════════
-   🪻 CASES
+   GRILLE
    ══════════════════════════════════════════════ */
 
 .calendar-days {
@@ -268,16 +255,20 @@ body {
     gap: 7px;
 }
 
+
+/* ══════════════════════════════════════════════
+   CASES DES JOURS
+   ══════════════════════════════════════════════ */
+
 .day {
 
     min-height: 125px;
 
     padding: 10px;
 
-    background:
-        rgba(61, 52, 65, 0.88);
+    background: #faf7f1;
 
-    border: 1px solid #756779;
+    border: 1px solid #d7c9d1;
 
     position: relative;
 
@@ -289,111 +280,156 @@ body {
 
 .day:hover {
 
-    border-color: #c0acc3;
+    border-color: #a98aad;
 
-    background: #625568;
+    background: #f4edf3;
 
     transform: translateY(-2px);
 }
 
 
-/* ══════════════════════════════════════════════
-   🔢 NUMÉROS
-   ══════════════════════════════════════════════ */
+/* Numéro */
 
 .day-number {
 
     font-size: 19px;
 
-    color: #ded3df;
+    color: #5d4d61;
 
     margin-bottom: 7px;
 }
 
+
+/* Jours hors mois */
+
 .other-month {
 
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
 
 /* ══════════════════════════════════════════════
-   ✨ AUJOURD'HUI
+   AUJOURD'HUI
    ══════════════════════════════════════════════ */
 
 .today {
 
-    border-color: #d4bfd8;
+    border-color: #9773a1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f6edf7,
+            #eee3f0
+        );
 
     box-shadow:
-        inset 0 0 18px rgba(218, 199, 222, 0.12);
+        inset 0 0 15px
+        rgba(150, 115, 160, 0.15);
 }
 
 .today .day-number {
 
-    color: #f0e5f1;
+    color: #704a79;
 
     font-weight: 700;
 }
 
 
 /* ══════════════════════════════════════════════
-   🎓 ACTIVITÉS
+   ÉVÉNEMENTS
    ══════════════════════════════════════════════ */
 
 .event {
 
-    padding: 5px 7px;
+    padding: 6px 8px;
 
-    margin-top: 5px;
+    margin-top: 6px;
 
     font-size: 14px;
 
-    border-left: 3px solid;
-
-    background:
-        rgba(240, 230, 242, 0.06);
+    border-left: 4px solid;
 
     line-height: 1.2;
-}
 
-.event.course {
+    border-radius: 2px;
 
-    border-color: #d5bfd9;
-
-    color: #eadfed;
-}
-
-.event.study {
-
-    border-color: #b8a1bc;
-
-    color: #d9cbdc;
-}
-
-.event.exercise {
-
-    border-color: #c5a9ca;
-
-    color: #e1d1e4;
-}
-
-.event.exam {
-
-    border-color: #e2c8df;
-
-    color: #f0dfea;
-}
-
-.event.assignment {
-
-    border-color: #a58cab;
-
-    color: #d1bfd5;
+    background: rgba(255, 255, 255, 0.65);
 }
 
 
 /* ══════════════════════════════════════════════
-   ♡ LÉGENDE
+   COURS — MAUVE
+   ══════════════════════════════════════════════ */
+
+.event.course {
+
+    border-color: #76517f;
+
+    background: #e8dbea;
+
+    color: #54385d;
+}
+
+
+/* ══════════════════════════════════════════════
+   ÉTUDE — BLEU GRIS
+   ══════════════════════════════════════════════ */
+
+.event.study {
+
+    border-color: #64788a;
+
+    background: #dce5ea;
+
+    color: #405564;
+}
+
+
+/* ══════════════════════════════════════════════
+   EXERCICES — ROSE POUDRÉ
+   ══════════════════════════════════════════════ */
+
+.event.exercise {
+
+    border-color: #a86f86;
+
+    background: #ecdce3;
+
+    color: #70465a;
+}
+
+
+/* ══════════════════════════════════════════════
+   EXAMEN — BORDEAUX
+   ══════════════════════════════════════════════ */
+
+.event.exam {
+
+    border-color: #824b59;
+
+    background: #ead7da;
+
+    color: #63343f;
+}
+
+
+/* ══════════════════════════════════════════════
+   TRAVAIL — VERT SAUGE
+   ══════════════════════════════════════════════ */
+
+.event.assignment {
+
+    border-color: #75836e;
+
+    background: #e1e6dc;
+
+    color: #4d5b47;
+}
+
+
+/* ══════════════════════════════════════════════
+   LÉGENDE
    ══════════════════════════════════════════════ */
 
 .legend {
@@ -404,18 +440,21 @@ body {
 
     text-align: center;
 
-    border-top: 1px solid #8b798e;
+    border-top:
+        1px solid #b9a7b5;
 
-    border-bottom: 1px solid #8b798e;
+    border-bottom:
+        1px solid #b9a7b5;
 }
 
 .legend h3 {
 
     margin: 0 0 15px;
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display", serif;
 
-    color: #3b303e;
+    color: #624e68;
 
     font-size: 21px;
 
@@ -441,14 +480,14 @@ body {
 
     gap: 7px;
 
-    color: #4d414f;
+    color: #6e6071;
 
     font-size: 16px;
 }
 
 
 /* ══════════════════════════════════════════════
-   ● PETITS POINTS
+   PETITS POINTS DE LA LÉGENDE
    ══════════════════════════════════════════════ */
 
 .dot {
@@ -463,28 +502,28 @@ body {
 }
 
 .dot.course {
-    background: #d5bfd9;
+    background: #76517f;
 }
 
 .dot.study {
-    background: #b8a1bc;
+    background: #64788a;
 }
 
 .dot.exercise {
-    background: #c5a9ca;
+    background: #a86f86;
 }
 
 .dot.exam {
-    background: #e2c8df;
+    background: #824b59;
 }
 
 .dot.assignment {
-    background: #a58cab;
+    background: #75836e;
 }
 
 
 /* ══════════════════════════════════════════════
-   🦢 FOOTER
+   FOOTER
    ══════════════════════════════════════════════ */
 
 footer {
@@ -493,7 +532,7 @@ footer {
 
     margin-top: 30px;
 
-    color: #4e424f;
+    color: #776879;
 
     font-size: 16px;
 
@@ -502,20 +541,19 @@ footer {
 
 footer span {
 
-    color: #66556a;
+    color: #85668d;
 
     margin: 0 8px;
 }
 
 
 /* ══════════════════════════════════════════════
-   📱 MOBILE
+   MOBILE
    ══════════════════════════════════════════════ */
 
 @media (max-width: 700px) {
 
     .calendar {
-
         padding: 12px;
     }
 
@@ -527,7 +565,6 @@ footer span {
     }
 
     .day-number {
-
         font-size: 15px;
     }
 
@@ -539,18 +576,14 @@ footer span {
     }
 
     .weekdays div {
-
         font-size: 12px;
     }
 
     .calendar-top h2 {
-
         font-size: 24px;
     }
 
     .legend-items {
-
         gap: 12px;
     }
 }
-```
