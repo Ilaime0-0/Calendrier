@@ -5,75 +5,8 @@ const monthYear = document.getElementById("monthYear");
 const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
-let currentDate = new Date();
-
 /* ──────────────────────────────────────────────
-   TES ACTIVITÉS
-   ────────────────────────────────────────────── */
-const events = {
-
-    /* ───────────────
-       DIMANCHE 30 AOÛT
-       ─────────────── */
-
-    "2026-08-30": [
-        {
-            title: "Math & statistiques · cours",
-            type: "course"
-        }
-    ],
-
-
-    /* ───────────────
-       LUNDI 31 AOÛT
-       ─────────────── */
-
-    "2026-08-31": [
-        {
-            title: "Séminaire de macroéconomie internationale · 8h30–11h30",
-            type: "course"
-        }
-    ],
-
-
-    /* ───────────────
-       MARDI 1 SEPTEMBRE
-       ─────────────── */
-
-    "2026-09-01": [
-        {
-            title: "Cours · 12h00–15h00",
-            type: "course"
-        }
-    ],
-
-
-    /* ───────────────
-       MERCREDI 2 SEPTEMBRE
-       ─────────────── */
-
-    "2026-09-02": [
-        {
-            title: "Cours · 8h30–11h30",
-            type: "course"
-        }
-    ],
-
-
-    /* ───────────────
-       VENDREDI 4 SEPTEMBRE
-       ─────────────── */
-
-    "2026-09-04": [
-        {
-            title: "Test obligatoire · 10h00–11h00",
-            type: "exam"
-        }
-    ]
-
-};
-/* ──────────────────────────────────────────────
-   MOIS
+   MOIS AFFICHÉS
    ────────────────────────────────────────────── */
 
 const monthNames = [
@@ -93,6 +26,57 @@ const monthNames = [
 
 
 /* ──────────────────────────────────────────────
+   CALENDRIER COMMENCE EN AOÛT 2026
+   ────────────────────────────────────────────── */
+
+let currentDate = new Date(2026, 7, 1);
+
+
+/* ──────────────────────────────────────────────
+   TES ACTIVITÉS
+   ────────────────────────────────────────────── */
+
+const events = {
+
+    "2026-08-30": [
+        {
+            title: "Math & statistiques · cours",
+            type: "course"
+        }
+    ],
+
+    "2026-08-31": [
+        {
+            title: "Séminaire de macroéconomie internationale · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-01": [
+        {
+            title: "Cours · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-09-02": [
+        {
+            title: "Cours · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-04": [
+        {
+            title: "Test obligatoire · 10h00–11h00",
+            type: "exam"
+        }
+    ]
+
+};
+
+
+/* ──────────────────────────────────────────────
    AFFICHER LE CALENDRIER
    ────────────────────────────────────────────── */
 
@@ -104,7 +88,8 @@ function renderCalendar() {
     const month = currentDate.getMonth();
 
     monthYear.textContent =
-        `${monthNames[month]} ${year}`;
+        monthNames[month] + " " + year;
+
 
     const firstDay =
         new Date(year, month, 1);
@@ -115,17 +100,22 @@ function renderCalendar() {
     let startingDay =
         firstDay.getDay();
 
-    /* On commence la semaine le lundi */
+    /* Lundi = premier jour */
 
-    startingDay =
-        startingDay === 0
-        ? 6
-        : startingDay - 1;
+    if (startingDay === 0) {
+        startingDay = 6;
+    } else {
+        startingDay = startingDay - 1;
+    }
+
 
     const daysInMonth =
         lastDay.getDate();
 
-    /* Jours du mois précédent */
+
+    /* ─────────────────────────────
+       JOURS DU MOIS PRÉCÉDENT
+       ───────────────────────────── */
 
     const previousLastDay =
         new Date(year, month, 0).getDate();
@@ -136,17 +126,28 @@ function renderCalendar() {
         i--
     ) {
 
-        const dayNumber =
+        const day =
+            document.createElement("div");
+
+        day.className = "day other-month";
+
+        const number =
+            document.createElement("div");
+
+        number.className = "day-number";
+
+        number.textContent =
             previousLastDay - i;
 
-        const day =
-            createDay(dayNumber, true);
+        day.appendChild(number);
 
         calendarDays.appendChild(day);
     }
 
 
-    /* Jours du mois actuel */
+    /* ─────────────────────────────
+       JOURS DU MOIS ACTUEL
+       ───────────────────────────── */
 
     for (
         let dayNumber = 1;
@@ -155,13 +156,61 @@ function renderCalendar() {
     ) {
 
         const day =
-            createDay(dayNumber, false);
+            document.createElement("div");
+
+        day.className = "day";
+
+
+        const number =
+            document.createElement("div");
+
+        number.className = "day-number";
+
+        number.textContent =
+            dayNumber;
+
+        day.appendChild(number);
+
+
+        const dateKey =
+            year +
+            "-" +
+            String(month + 1).padStart(2, "0") +
+            "-" +
+            String(dayNumber).padStart(2, "0");
+
+
+        /* ─────────────────────────
+           ACTIVITÉS
+           ───────────────────────── */
+
+        if (events[dateKey]) {
+
+            events[dateKey].forEach(event => {
+
+                const eventElement =
+                    document.createElement("div");
+
+                eventElement.className =
+                    "event " + event.type;
+
+                eventElement.textContent =
+                    event.title;
+
+                day.appendChild(eventElement);
+
+            });
+
+        }
+
 
         calendarDays.appendChild(day);
     }
 
 
-    /* Jours du mois suivant */
+    /* ─────────────────────────────
+       JOURS DU MOIS SUIVANT
+       ───────────────────────────── */
 
     const totalCells =
         calendarDays.children.length;
@@ -176,7 +225,19 @@ function renderCalendar() {
     ) {
 
         const day =
-            createDay(i, true);
+            document.createElement("div");
+
+        day.className = "day other-month";
+
+        const number =
+            document.createElement("div");
+
+        number.className = "day-number";
+
+        number.textContent =
+            i;
+
+        day.appendChild(number);
 
         calendarDays.appendChild(day);
     }
@@ -184,137 +245,38 @@ function renderCalendar() {
 
 
 /* ──────────────────────────────────────────────
-   CRÉER UNE JOURNÉE
+   MOIS PRÉCÉDENT
    ────────────────────────────────────────────── */
 
-function createDay(dayNumber, otherMonth) {
+prevMonth.addEventListener("click", function() {
 
-    const day =
-        document.createElement("div");
+    currentDate.setMonth(
+        currentDate.getMonth() - 1
+    );
 
-    day.classList.add("day");
+    renderCalendar();
 
-    if (otherMonth) {
-
-        day.classList.add("other-month");
-
-        const number =
-            document.createElement("div");
-
-        number.classList.add("day-number");
-
-        number.textContent =
-            dayNumber;
-
-        day.appendChild(number);
-
-        return day;
-    }
-
-
-    const year =
-        currentDate.getFullYear();
-
-    const month =
-        String(
-            currentDate.getMonth() + 1
-        ).padStart(2, "0");
-
-    const dateKey =
-        `${year}-${month}-${String(dayNumber).padStart(2, "0")}`;
-
-
-    /* Numéro du jour */
-
-    const number =
-        document.createElement("div");
-
-    number.classList.add("day-number");
-
-    number.textContent =
-        dayNumber;
-
-    day.appendChild(number);
-
-
-    /* Aujourd'hui */
-
-    const today =
-        new Date();
-
-    if (
-        dayNumber === today.getDate() &&
-        currentDate.getMonth() === today.getMonth() &&
-        currentDate.getFullYear() === today.getFullYear()
-    ) {
-
-        day.classList.add("today");
-    }
-
-
-    /* Activités */
-
-    if (events[dateKey]) {
-
-        events[dateKey].forEach(event => {
-
-            const eventElement =
-                document.createElement("div");
-
-            eventElement.classList.add(
-                "event",
-                event.type
-            );
-
-            eventElement.textContent =
-                event.title;
-
-            day.appendChild(eventElement);
-
-        });
-    }
-
-
-    return day;
-}
+});
 
 
 /* ──────────────────────────────────────────────
-   BOUTON MOIS PRÉCÉDENT
+   MOIS SUIVANT
    ────────────────────────────────────────────── */
 
-prevMonth.addEventListener(
-    "click",
-    () => {
+nextMonth.addEventListener("click", function() {
 
-        currentDate.setMonth(
-            currentDate.getMonth() - 1
-        );
+    currentDate.setMonth(
+        currentDate.getMonth() + 1
+    );
 
-        renderCalendar();
+    renderCalendar();
 
-    }
-);
+});
 
 
 /* ──────────────────────────────────────────────
-   BOUTON MOIS SUIVANT
+   LANCER LE CALENDRIER
    ────────────────────────────────────────────── */
 
-nextMonth.addEventListener(
-    "click",
-    () => {
-
-        currentDate.setMonth(
-            currentDate.getMonth() + 1
-        );
-
-        renderCalendar();
-
-    }
-);
-
-
-/* Afficher le calendrier */
 renderCalendar();
 ```
