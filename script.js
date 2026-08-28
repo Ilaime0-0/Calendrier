@@ -1,4 +1,3 @@
-```javascript
 const calendarDays = document.getElementById("calendarDays");
 const monthYear = document.getElementById("monthYear");
 
@@ -8,9 +7,9 @@ const nextMonth = document.getElementById("nextMonth");
 let currentDate = new Date(2026, 7, 1);
 
 
-/* ══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    TES ACTIVITÉS
-   ══════════════════════════════════════════════ */
+   ═══════════════════════════════════════ */
 
 const events = {
 
@@ -52,9 +51,9 @@ const events = {
 };
 
 
-/* ══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    NOMS DES MOIS
-   ══════════════════════════════════════════════ */
+   ═══════════════════════════════════════ */
 
 const monthNames = [
     "janvier",
@@ -72,9 +71,9 @@ const monthNames = [
 ];
 
 
-/* ══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    AFFICHER LE CALENDRIER
-   ══════════════════════════════════════════════ */
+   ═══════════════════════════════════════ */
 
 function renderCalendar() {
 
@@ -83,18 +82,23 @@ function renderCalendar() {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
 
-    monthYear.textContent =
-        monthNames[month] + " " + year;
+    monthYear.textContent = monthNames[month] + " " + year;
 
+    const firstDay = new Date(year, month, 1);
 
-    const firstDay =
-        new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
 
-    const lastDay =
-        new Date(year, month + 1, 0);
+    let startingDay = firstDay.getDay();
 
-    let startingDay =
-        firstDay.getDay();
+    /*
+       JavaScript :
+       dimanche = 0
+       lundi = 1
+       mardi = 2
+       etc.
+
+       On transforme pour que lundi soit le premier jour.
+    */
 
     if (startingDay === 0) {
         startingDay = 6;
@@ -103,37 +107,26 @@ function renderCalendar() {
     }
 
 
-    const daysInMonth =
-        lastDay.getDate();
-
-
-    /* ══════════════════════════════════════════
+    /* ═══════════════════════════════════════
        JOURS DU MOIS PRÉCÉDENT
-       ══════════════════════════════════════════ */
+       ═══════════════════════════════════════ */
 
     const previousLastDay =
         new Date(year, month, 0).getDate();
 
-    for (
-        let i = startingDay - 1;
-        i >= 0;
-        i--
-    ) {
+    for (let i = startingDay - 1; i >= 0; i--) {
 
-        const day =
-            document.createElement("div");
+        const dayNumber = previousLastDay - i;
 
-        day.className =
-            "day other-month";
+        const day = document.createElement("div");
 
-        const number =
-            document.createElement("div");
+        day.classList.add("day", "other-month");
 
-        number.className =
-            "day-number";
+        const number = document.createElement("div");
 
-        number.textContent =
-            previousLastDay - i;
+        number.classList.add("day-number");
+
+        number.textContent = dayNumber;
 
         day.appendChild(number);
 
@@ -141,46 +134,61 @@ function renderCalendar() {
     }
 
 
-    /* ══════════════════════════════════════════
+    /* ═══════════════════════════════════════
        JOURS DU MOIS ACTUEL
-       ══════════════════════════════════════════ */
+       ═══════════════════════════════════════ */
 
-    for (
-        let dayNumber = 1;
-        dayNumber <= daysInMonth;
-        dayNumber++
-    ) {
+    const daysInMonth = lastDay.getDate();
 
-        const day =
-            document.createElement("div");
+    for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber++) {
 
-        day.className =
-            "day";
+        const day = document.createElement("div");
+
+        day.classList.add("day");
 
 
-        const number =
-            document.createElement("div");
+        /* Numéro du jour */
 
-        number.className =
-            "day-number";
+        const number = document.createElement("div");
 
-        number.textContent =
-            dayNumber;
+        number.classList.add("day-number");
+
+        number.textContent = dayNumber;
 
         day.appendChild(number);
 
 
-        const dateKey =
-            year +
-            "-" +
-            String(month + 1).padStart(2, "0") +
-            "-" +
+        /* Date complète */
+
+        const monthString =
+            String(month + 1).padStart(2, "0");
+
+        const dayString =
             String(dayNumber).padStart(2, "0");
 
+        const dateKey =
+            year + "-" + monthString + "-" + dayString;
 
-        /* ══════════════════════════════════════
-           ÉVÉNEMENTS
-           ══════════════════════════════════════ */
+
+        /* ═══════════════════════════════════════
+           AUJOURD'HUI
+           ═══════════════════════════════════════ */
+
+        const today = new Date();
+
+        if (
+            dayNumber === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear()
+        ) {
+
+            day.classList.add("today");
+        }
+
+
+        /* ═══════════════════════════════════════
+           ACTIVITÉS
+           ═══════════════════════════════════════ */
 
         if (events[dateKey]) {
 
@@ -189,8 +197,10 @@ function renderCalendar() {
                 const eventElement =
                     document.createElement("div");
 
-                eventElement.className =
-                    "event " + event.type;
+                eventElement.classList.add(
+                    "event",
+                    event.type
+                );
 
                 eventElement.textContent =
                     event.title;
@@ -198,7 +208,6 @@ function renderCalendar() {
                 day.appendChild(eventElement);
 
             });
-
         }
 
 
@@ -206,9 +215,9 @@ function renderCalendar() {
     }
 
 
-    /* ══════════════════════════════════════════
+    /* ═══════════════════════════════════════
        JOURS DU MOIS SUIVANT
-       ══════════════════════════════════════════ */
+       ═══════════════════════════════════════ */
 
     const totalCells =
         calendarDays.children.length;
@@ -216,38 +225,28 @@ function renderCalendar() {
     const remaining =
         (7 - (totalCells % 7)) % 7;
 
-    for (
-        let i = 1;
-        i <= remaining;
-        i++
-    ) {
+    for (let i = 1; i <= remaining; i++) {
 
-        const day =
-            document.createElement("div");
+        const day = document.createElement("div");
 
-        day.className =
-            "day other-month";
+        day.classList.add("day", "other-month");
 
-        const number =
-            document.createElement("div");
+        const number = document.createElement("div");
 
-        number.className =
-            "day-number";
+        number.classList.add("day-number");
 
-        number.textContent =
-            i;
+        number.textContent = i;
 
         day.appendChild(number);
 
         calendarDays.appendChild(day);
     }
-
 }
 
 
-/* ══════════════════════════════════════════════
-   BOUTON MOIS PRÉCÉDENT
-   ══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   MOIS PRÉCÉDENT
+   ═══════════════════════════════════════ */
 
 prevMonth.addEventListener("click", function() {
 
@@ -260,9 +259,9 @@ prevMonth.addEventListener("click", function() {
 });
 
 
-/* ══════════════════════════════════════════════
-   BOUTON MOIS SUIVANT
-   ══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   MOIS SUIVANT
+   ═══════════════════════════════════════ */
 
 nextMonth.addEventListener("click", function() {
 
@@ -275,9 +274,8 @@ nextMonth.addEventListener("click", function() {
 });
 
 
-/* ══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    LANCER LE CALENDRIER
-   ══════════════════════════════════════════════ */
+   ═══════════════════════════════════════ */
 
 renderCalendar();
-```
