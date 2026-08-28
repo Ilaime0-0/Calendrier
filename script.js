@@ -316,6 +316,6 @@ nextMonth.addEventListener(
 
 
 /* Afficher le calendrier */
-
+alert("SCRIPT.JS FONCTIONNE !");
 renderCalendar();
 ```
