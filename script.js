@@ -10,59 +10,68 @@ let currentDate = new Date();
 /* ──────────────────────────────────────────────
    TES ACTIVITÉS
    ────────────────────────────────────────────── */
-
 const events = {
+
+    /* ───────────────
+       DIMANCHE 30 AOÛT
+       ─────────────── */
 
     "2026-08-30": [
         {
-            title: "Math & statistiques",
+            title: "Math & statistiques · cours",
             type: "course"
         }
     ],
+
+
+    /* ───────────────
+       LUNDI 31 AOÛT
+       ─────────────── */
 
     "2026-08-31": [
         {
-            title: "Séminaire de macro",
+            title: "Séminaire de macroéconomie internationale · 8h30–11h30",
             type: "course"
-        },
-        {
-            title: "Consolidation des notes",
-            type: "study"
         }
     ],
+
+
+    /* ───────────────
+       MARDI 1 SEPTEMBRE
+       ─────────────── */
 
     "2026-09-01": [
         {
-            title: "Préparation du cours",
-            type: "study"
-        },
-        {
-            title: "Exercices",
-            type: "exercise"
+            title: "Cours · 12h00–15h00",
+            type: "course"
         }
     ],
+
+
+    /* ───────────────
+       MERCREDI 2 SEPTEMBRE
+       ─────────────── */
 
     "2026-09-02": [
         {
-            title: "Cours",
+            title: "Cours · 8h30–11h30",
             type: "course"
-        },
-        {
-            title: "Consolidation",
-            type: "study"
         }
     ],
 
+
+    /* ───────────────
+       VENDREDI 4 SEPTEMBRE
+       ─────────────── */
+
     "2026-09-04": [
         {
-            title: "Test obligatoire",
+            title: "Test obligatoire · 10h00–11h00",
             type: "exam"
         }
     ]
 
 };
-
-
 /* ──────────────────────────────────────────────
    MOIS
    ────────────────────────────────────────────── */
