@@ -1,2 +1,879 @@
 # Calendrier
 Automne 2026 ❦ Msc Économie Appliquée
+
+# GUIDE COMPLET — PERSONNALISER MON CALENDRIER ♡
+
+Projet : My Study Calendar
+Style : Victorian · Gothic · Romantic · Pink · Cream · Lace · Hearts
+
+╔══════════════════════════════════════════════════════════════╗
+║ 1. COMPRENDRE LES 3 FICHIERS                                ║
+╚══════════════════════════════════════════════════════════════╝
+
+Mon calendrier fonctionne principalement avec trois fichiers :
+
+• index.html
+• style.css
+• script.js
+
+Ils n'ont pas le même rôle.
+
+## INDEX.HTML
+
+C'est la structure de la page.
+
+On y trouve par exemple :
+
+• le titre
+• le calendrier
+• les boutons
+• les jours de la semaine
+• la légende
+• les décorations
+• les images
+
+## STYLE.CSS
+
+C'est l'apparence.
+
+On y contrôle :
+
+• les couleurs
+• les fonds
+• les bordures
+• les tailles
+• les polices
+• la dentelle
+• les cœurs
+• les décorations
+• l'apparence du calendrier sur téléphone
+
+## SCRIPT.JS
+
+C'est le fonctionnement.
+
+On y contrôle :
+
+• les événements
+• les dates
+• les titres des événements
+• les types d'événements
+• le changement de mois
+• l'affichage automatique du calendrier
+
+## RÈGLE SIMPLE
+
+Ajouter un événement
+→ script.js
+
+Changer une couleur
+→ style.css
+
+Ajouter une décoration HTML
+→ index.html
+
+Ajouter une image
+→ dossier images + HTML/CSS
+
+╔══════════════════════════════════════════════════════════════╗
+║ 2. AJOUTER UN ÉVÉNEMENT                                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+Les événements se trouvent dans script.js, dans :
+
+const events = {
+
+```
+...
+```
+
+};
+
+Chaque date doit être écrite ainsi :
+
+"AAAA-MM-JJ"
+
+Exemple :
+
+"2026-09-15": [
+{
+title: "ECON 60803 · 12h00–15h00",
+type: "course"
+}
+],
+
+IMPORTANT :
+
+2026 = année
+09 = mois
+15 = jour
+
+Donc :
+
+15 septembre 2026
+
+devient :
+
+"2026-09-15"
+
+╔══════════════════════════════════════════════════════════════╗
+║ 3. AJOUTER PLUSIEURS ÉVÉNEMENTS LE MÊME JOUR               ║
+╚══════════════════════════════════════════════════════════════╝
+
+On peut mettre plusieurs événements dans la même date.
+
+Exemple :
+
+"2026-09-15": [
+
+```
+{
+    title: "ECON 60803 · 12h00–15h00",
+    type: "course"
+},
+
+{
+    title: "Exercices · 15h30–17h00",
+    type: "exercise"
+},
+
+{
+    title: "Lecture · 17h30–18h30",
+    type: "study"
+}
+```
+
+],
+
+Ils apparaîtront tous dans la case du 15 septembre.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 4. AJOUTER UNE NOUVELLE DATE                                ║
+╚══════════════════════════════════════════════════════════════╝
+
+Si la date n'existe pas encore, il suffit de créer un nouveau bloc.
+
+Exemple :
+
+"2026-10-05": [
+{
+title: "ECON 60801 · 8h30–11h30",
+type: "course"
+}
+],
+
+On peut mettre ce bloc n'importe où dans :
+
+const events = {
+
+```
+...
+```
+
+};
+
+Mais il faut respecter la syntaxe JavaScript.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 5. LES TYPES D'ÉVÉNEMENTS                                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+Le calendrier utilise plusieurs types.
+
+course
+study
+exercise
+exam
+assignment
+
+Exemple :
+
+{
+title: "ECON 60801 · 8h30–11h30",
+type: "course"
+}
+
+Le type sert à dire au CSS quelle apparence donner à l'événement.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 6. DIFFÉRENCIER MES TROIS COURS                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+Pour avoir une couleur différente pour chaque cours, on peut utiliser :
+
+econ60801
+econ60803
+econ60804
+
+Exemple dans script.js :
+
+{
+title: "ECON 60801 · 8h30–11h30",
+type: "econ60801"
+}
+
+Puis :
+
+{
+title: "ECON 60803 · 12h00–15h00",
+type: "econ60803"
+}
+
+Et :
+
+{
+title: "ECON 60804 · 8h30–11h30",
+type: "econ60804"
+}
+
+Ensuite, dans style.css, on peut leur donner des couleurs différentes.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 7. COULEURS DES COURS                                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans style.css :
+
+.event.econ60801 {
+background: #f3d7e5;
+color: #5c3148;
+}
+
+ECON 60803 :
+
+.event.econ60803 {
+background: #ded8f0;
+color: #4b4166;
+}
+
+ECON 60804 :
+
+.event.econ60804 {
+background: #dedede;
+color: #444444;
+}
+
+Cela permet d'obtenir :
+
+ECON 60801
+→ rose poudré
+
+ECON 60803
+→ lavande
+
+ECON 60804
+→ gris doux
+
+╔══════════════════════════════════════════════════════════════╗
+║ 8. COULEUR DES EXAMENS                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Les examens utilisent :
+
+type: "exam"
+
+Dans style.css :
+
+.event.exam {
+background: #d9b8c4;
+color: #351f29;
+border-left: 4px solid #6e3048;
+}
+
+L'examen devient ainsi beaucoup plus facile à repérer.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 9. COULEUR DES EXERCICES                                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+Les exercices utilisent :
+
+type: "exercise"
+
+On peut par exemple utiliser :
+
+.event.exercise {
+background: #eadfcf;
+color: #594a3d;
+}
+
+Cela donne une couleur beige/crème différente des cours.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 10. COULEUR DES SÉANCES D'ÉTUDE                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Les séances d'étude utilisent :
+
+type: "study"
+
+Exemple :
+
+.event.study {
+background: #e8dce5;
+color: #574653;
+}
+
+On obtient ainsi une palette douce et différente pour chaque activité.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 11. PALETTE DE COULEURS DU CALENDRIER                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+Quelques couleurs utiles pour notre thème :
+
+ROSE TRÈS PÂLE
+#f8e8ef
+
+ROSE POUDRÉ
+#e8c5d2
+
+ROSE ANCIEN
+#c994aa
+
+LAVANDE
+#ddd5ed
+
+CRÈME
+#fffaf4
+
+IVOIRE
+#f7f0e5
+
+BEIGE
+#e8ddcf
+
+GRIS PERLE
+#dedede
+
+GRIS MAUVE
+#c9c1c8
+
+BORDEAUX
+#6e3048
+
+NOIR DOUX
+#30262b
+
+Pour notre esthétique, éviter d'utiliser trop de couleurs très vives.
+
+L'objectif est :
+
+romantique + gothique + victorien + élégant.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 12. CHANGER LE FOND DU CALENDRIER                          ║
+╚══════════════════════════════════════════════════════════════╝
+
+Chercher dans style.css :
+
+.calendar {
+
+```
+...
+```
+
+}
+
+ou éventuellement :
+
+.calendar-container {
+
+```
+...
+```
+
+}
+
+Si le fond est trop noir, utiliser :
+
+background: #fffaf4;
+
+ou :
+
+background: #f8f1e8;
+
+ou :
+
+background: #f7f0e5;
+
+Une bonne combinaison :
+
+background: #fffaf4;
+border: 1px solid #d8c8c0;
+
+╔══════════════════════════════════════════════════════════════╗
+║ 13. AJOUTER UNE DÉCORATION EN TEXTE                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans index.html, on peut écrire :
+
+<div class="ornament">
+    ꧁༺ ♡ ༻꧂
+</div>
+
+Autres décorations :
+
+⋅˚₊‧ ୨୧ ‧₊˚ ⋅
+
+꧁༺ 𓆩♡𓆪 ༻꧂
+
+୨୧ ───────── ୨୧
+
+♡ ── ⋆｡°✩ ── ♡
+
+꧁༺ Ceteris Paribus ༻꧂
+
+╔══════════════════════════════════════════════════════════════╗
+║ 14. AJOUTER DES PETITS CŒURS DANS LE FOND                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans style.css :
+
+body::before {
+content: "♡  ♡  ♡  ♡  ♡";
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: -1;
+opacity: 0.15;
+font-size: 25px;
+letter-spacing: 45px;
+}
+
+On peut modifier :
+
+opacity
+→ transparence
+
+font-size
+→ taille des cœurs
+
+letter-spacing
+→ espace entre les cœurs
+
+Pour des cœurs très subtils :
+
+opacity: 0.08;
+
+╔══════════════════════════════════════════════════════════════╗
+║ 15. AJOUTER UN CŒUR FLOTTANT ♡                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans index.html, juste avant :
+
+</body>
+
+ajouter :
+
+<div class="floating-heart">♡</div>
+
+Puis dans style.css :
+
+.floating-heart {
+position: fixed;
+right: 30px;
+bottom: 30px;
+font-size: 42px;
+color: #c994aa;
+z-index: 20;
+animation: floatingHeart 3s ease-in-out infinite;
+}
+
+Puis :
+
+@keyframes floatingHeart {
+
+```
+0%, 100% {
+    transform: translateY(0);
+}
+
+50% {
+    transform: translateY(-12px);
+}
+```
+
+}
+
+Le cœur montera et descendra doucement.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 16. AJOUTER DE LA DENTELLE                                ║
+╚══════════════════════════════════════════════════════════════╝
+
+Le calendrier possède déjà :
+
+<div class="lace lace-top"></div>
+
+et :
+
+<div class="lace lace-bottom"></div>
+
+La dentelle est donc contrôlée dans style.css.
+
+Chercher :
+
+.lace
+
+.lace-top
+
+.lace-bottom
+
+Pour rendre la dentelle plus fine :
+
+.lace {
+height: 18px;
+}
+
+Pour la rendre plus discrète :
+
+opacity: 0.65;
+
+Pour notre style, la dentelle doit rester fine et délicate.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 17. AJOUTER UNE IMAGE                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Créer dans GitHub un dossier :
+
+images
+
+Puis mettre dedans les images.
+
+Exemple :
+
+images/
+lace.png
+hearts.png
+rose.png
+background.jpg
+
+Dans index.html :
+
+<img src="images/rose.png" alt="Rose décorative">
+
+Pour une image purement décorative :
+
+<img
+src="images/rose.png"
+alt=""
+class="decorative-image"
+
+>
+
+Puis dans style.css :
+
+.decorative-image {
+width: 120px;
+opacity: 0.8;
+}
+
+╔══════════════════════════════════════════════════════════════╗
+║ 18. AJOUTER UNE IMAGE DE FOND                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Si l'image s'appelle :
+
+background.jpg
+
+et se trouve dans :
+
+images/background.jpg
+
+on peut mettre dans style.css :
+
+body {
+background-image: url("images/background.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+
+ATTENTION :
+
+Une image trop chargée peut rendre le calendrier difficile à lire.
+
+Il vaut mieux choisir une image très pâle avec :
+
+• dentelle
+• roses
+• cœurs
+• motifs victoriens
+• papier ancien
+• fleurs très discrètes
+
+╔══════════════════════════════════════════════════════════════╗
+║ 19. RENDRE UNE IMAGE TRÈS DISCRÈTE                         ║
+╚══════════════════════════════════════════════════════════════╝
+
+On peut utiliser :
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+background-image: url("images/hearts.png");
+background-size: 500px;
+opacity: 0.08;
+pointer-events: none;
+z-index: -1;
+}
+
+L'image sera alors presque transparente.
+
+C'est particulièrement joli pour :
+
+♡ petits cœurs
+♡ dentelle
+♡ fleurs
+♡ papillons
+♡ motifs victoriens
+
+╔══════════════════════════════════════════════════════════════╗
+║ 20. AJOUTER DES DÉCORATIONS AUTOUR DU CALENDRIER           ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans index.html :
+
+<div class="calendar-decoration left">♡</div>
+
+<div class="calendar-decoration right">♡</div>
+
+Puis dans style.css :
+
+.calendar-decoration {
+position: absolute;
+color: #c994aa;
+font-size: 35px;
+opacity: 0.7;
+}
+
+On peut ensuite placer les décorations.
+
+Exemple :
+
+.left {
+left: -25px;
+top: 30%;
+}
+
+.right {
+right: -25px;
+top: 60%;
+}
+
+╔══════════════════════════════════════════════════════════════╗
+║ 21. AJOUTER UNE NOUVELLE CATÉGORIE                         ║
+╚══════════════════════════════════════════════════════════════╝
+
+Exemple : ajouter une catégorie "Lecture".
+
+Dans script.js :
+
+{
+title: "Lecture · chapitre 2",
+type: "reading"
+}
+
+Puis dans style.css :
+
+.event.reading {
+background: #eee4d7;
+color: #55463b;
+}
+
+On peut ensuite ajouter "Lecture" dans la légende de index.html.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 22. MODIFIER LA LÉGENDE                                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+Dans index.html, la légende ressemble à :
+
+<section class="legend">
+
+```
+...
+```
+
+</section>
+
+On peut ajouter :
+
+<span>
+    <i class="dot reading"></i>
+    Lecture
+</span>
+
+Puis dans style.css :
+
+.dot.reading {
+background: #eee4d7;
+}
+
+╔══════════════════════════════════════════════════════════════╗
+║ 23. CALENDRIER SUR TÉLÉPHONE                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+Le calendrier doit rester lisible sur téléphone.
+
+Chercher dans style.css :
+
+@media (max-width: 600px) {
+
+```
+...
+```
+
+}
+
+On peut y mettre :
+
+@media (max-width: 600px) {
+
+```
+.calendar-container {
+    width: 95%;
+}
+
+.event {
+    font-size: 10px;
+    padding: 3px;
+}
+
+.day {
+    min-height: 80px;
+}
+
+.ornament {
+    font-size: 20px;
+}
+```
+
+}
+
+Si les événements sont trop longs, on peut aussi réduire leur taille.
+
+L'objectif est de ne jamais avoir :
+
+• texte qui sort de la case
+• calendrier trop large
+• boutons impossibles à toucher
+• décorations qui cachent les événements
+
+╔══════════════════════════════════════════════════════════════╗
+║ 24. SI UNE MODIFICATION NE S'AFFICHE PAS                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+Faire les vérifications dans cet ordre :
+
+1. Enregistrer le fichier.
+
+2. Vérifier que le fichier est bien sur GitHub.
+
+3. Vérifier que le commit a bien été effectué.
+
+4. Aller dans Actions.
+
+5. Vérifier que "pages build and deployment" est terminé.
+
+6. Attendre "completed successfully".
+
+7. Actualiser le site.
+
+Sur ordinateur :
+
+Ctrl + F5
+
+Si nécessaire :
+
+• ouvrir une fenêtre privée
+• actualiser
+• vérifier que la bonne adresse GitHub Pages est utilisée
+
+╔══════════════════════════════════════════════════════════════╗
+║ 25. SI LE JAVASCRIPT DONNE UNE ERREUR                       ║
+╚══════════════════════════════════════════════════════════════╝
+
+Ouvrir :
+
+F12 → Console
+
+Une erreur rouge signifie généralement qu'il y a un problème dans :
+
+• script.js
+• index.html
+• le chargement du fichier JavaScript
+
+IMPORTANT :
+
+Ne pas modifier plusieurs choses en même temps.
+
+Faire une seule modification.
+
+Enregistrer.
+
+Tester.
+
+Puis passer à la suivante.
+
+╔══════════════════════════════════════════════════════════════╗
+║ 26. RAPPEL ULTRA SIMPLE                                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+JE VEUX AJOUTER UN COURS
+→ script.js
+
+JE VEUX CHANGER SA COULEUR
+→ style.css
+
+JE VEUX AJOUTER UN CŒUR
+→ index.html + style.css
+
+JE VEUX AJOUTER DE LA DENTELLE
+→ index.html + style.css
+
+JE VEUX AJOUTER UNE IMAGE
+→ dossier images + index.html/CSS
+
+JE VEUX CHANGER LE FOND
+→ style.css
+
+JE VEUX CHANGER LA TAILLE SUR TÉLÉPHONE
+→ style.css → @media
+
+╔══════════════════════════════════════════════════════════════╗
+║ 27. NOTRE ESTHÉTIQUE ♡                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Le calendrier doit rester :
+
+♡ victorien
+♡ romantique
+♡ gothic doux
+♡ rose poudré
+♡ crème
+♡ ivoire
+♡ lavande
+♡ dentelle fine
+♡ petits cœurs
+♡ ornements délicats
+♡ élégant
+♡ lisible
+♡ pratique pour les études
+
+La règle principale :
+
+DÉCORER LE CALENDRIER SANS SACRIFIER SA LISIBILITÉ.
+
+═══════════════════════════════════════════════════════════════
+
+FIN DU GUIDE ♡
+
+꧁༺ 𓆩♡𓆪 ༻꧂
+
+Ceteris Paribus
+My Study Calendar
+Autumn 2026
