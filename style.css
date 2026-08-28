@@ -1,24 +1,40 @@
+/* ══════════════════════════════════════════════
+   🖤 PINK VICTORIAN GOTHIC STUDY CALENDAR 🖤
+   ══════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════════ */
+
 * {
     box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     background:
         radial-gradient(
             circle at top,
-            #ddd2df 0%,
-            #c9bccb 35%,
-            #afa1b2 70%,
-            #958799 100%
+            #fff8fc 0%,
+            #f6e9ef 45%,
+            #ead9e1 100%
         );
 
-    color: #302934;
+    color: #3c2732;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    overflow-x: hidden;
 }
+
 
 
 /* ══════════════════════════════════════════════
@@ -26,29 +42,90 @@ body {
    ══════════════════════════════════════════════ */
 
 .lace {
-    height: 18px;
+
+    position: fixed;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 28px;
+
+    pointer-events: none;
+
+    z-index: 10;
 
     background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 7px,
-            #8e7895 8px,
+        radial-gradient(
+            circle at 10px 0,
             transparent 9px,
-            transparent 16px
+            rgba(74, 39, 55, 0.20) 10px,
+            transparent 11px
         );
 
-    opacity: 0.45;
+    background-size: 20px 20px;
 }
+
 
 .lace-top {
-    border-bottom: 1px solid #8e7895;
+    top: 0;
 }
 
+
 .lace-bottom {
-    margin-top: 35px;
-    border-top: 1px solid #8e7895;
+    bottom: 0;
 }
+
+
+
+/* ══════════════════════════════════════════════
+   CŒUR FLOTTANT
+   ══════════════════════════════════════════════ */
+
+.floating-heart {
+
+    position: fixed;
+
+    right: 7%;
+
+    top: 18%;
+
+    font-size: 34px;
+
+    color: #9e526f;
+
+    opacity: 0.45;
+
+    animation:
+        floatingHeart 4s ease-in-out infinite;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+@keyframes floatingHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(8deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+}
+
 
 
 /* ══════════════════════════════════════════════
@@ -56,156 +133,174 @@ body {
    ══════════════════════════════════════════════ */
 
 .calendar-container {
-    width: min(1150px, 94%);
-    margin: 45px auto;
+
+    width: min(1100px, 94%);
+
+    margin: 60px auto;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 
+
 /* ══════════════════════════════════════════════
-   TITRE
+   HEADER
    ══════════════════════════════════════════════ */
 
 .header {
+
     text-align: center;
-    margin-bottom: 35px;
+
+    margin-bottom: 30px;
 }
 
-.header h1 {
-    margin: 12px 0 3px;
 
-    font-family: "Playfair Display", serif;
+.ornament {
 
-    font-size: clamp(38px, 6vw, 65px);
+    color: #9b536f;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+    margin: 10px 0;
+}
+
+
+h1 {
+
+    margin: 5px 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: clamp(30px, 5vw, 48px);
 
     font-weight: 500;
 
-    letter-spacing: 3px;
+    color: #432b37;
 
-    color: #55445b;
-
-    text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
 }
+
 
 .subtitle {
-    margin: 0;
 
-    font-size: 18px;
+    margin: 5px 0;
 
-    letter-spacing: 3px;
+    font-size: 17px;
 
-    color: #75657a;
+    font-style: italic;
 
-    text-transform: lowercase;
+    color: #866474;
 }
 
-.ornament {
-    color: #76567e;
-
-    font-size: 24px;
-
-    letter-spacing: 6px;
-}
 
 
 /* ══════════════════════════════════════════════
-   GRAND CADRE DU CALENDRIER
+   CALENDRIER
    ══════════════════════════════════════════════ */
 
 .calendar {
 
-    background:
-        linear-gradient(
-            145deg,
-            #f5efe7,
-            #eee5dc
-        );
+    background: #fffdf9;
 
-    border: 1px solid #b9a7b5;
+    border: 2px solid #d9c7cd;
+
+    border-radius: 18px;
+
+    padding: 25px;
 
     box-shadow:
-        0 20px 60px rgba(70, 55, 75, 0.25),
-        inset 0 0 35px rgba(120, 100, 120, 0.08);
+        0 12px 35px
+        rgba(68, 39, 52, 0.12),
 
-    padding: 28px;
+        inset 0 0 0 6px
+        rgba(246, 235, 239, 0.7);
 }
 
 
+
 /* ══════════════════════════════════════════════
-   MOIS
+   NAVIGATION
    ══════════════════════════════════════════════ */
 
 .calendar-top {
-    display: flex;
 
-    align-items: center;
+    display: flex;
 
     justify-content: space-between;
 
-    margin-bottom: 28px;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+.month-title {
 
     text-align: center;
 }
 
-.calendar-top h2 {
+
+#monthYear {
 
     margin: 0;
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
-    font-size: 32px;
-
-    font-weight: 500;
-
-    color: #5b485f;
+    font-size: 28px;
 
     text-transform: capitalize;
+
+    color: #4b303d;
 }
+
 
 .little-decoration {
 
-    margin: 2px 0 0;
+    margin: 0;
 
-    color: #95759d;
+    color: #b56d89;
 
-    font-size: 18px;
+    font-size: 20px;
 }
 
 
-/* ══════════════════════════════════════════════
-   BOUTONS
-   ══════════════════════════════════════════════ */
-
 .nav-button {
 
-    width: 45px;
+    width: 44px;
 
-    height: 45px;
+    height: 44px;
 
-    border: 1px solid #b09aae;
+    border-radius: 50%;
 
-    background: #e5d9e3;
+    border: 1px solid #d5b9c4;
 
-    color: #634d69;
+    background: #f8edf1;
+
+    color: #684253;
 
     font-size: 18px;
 
     cursor: pointer;
 
-    transition:
-        background 0.25s,
-        transform 0.25s,
-        border-color 0.25s;
+    transition: 0.25s;
 }
+
 
 .nav-button:hover {
 
-    background: #d5c3d7;
+    background: #ead5de;
 
-    border-color: #806489;
-
-    transform: translateY(-2px);
+    transform: scale(1.08);
 }
+
 
 
 /* ══════════════════════════════════════════════
@@ -219,26 +314,29 @@ body {
     grid-template-columns:
         repeat(7, 1fr);
 
-    border-bottom:
-        1px solid #c4b2c1;
+    text-align: center;
 
     margin-bottom: 8px;
 }
 
+
 .weekdays div {
 
-    padding: 12px 5px;
+    padding: 8px;
 
-    text-align: center;
+    font-family:
+        "Playfair Display",
+        serif;
 
-    color: #705b75;
+    font-size: 14px;
 
-    font-size: 17px;
-
-    letter-spacing: 2px;
+    color: #765263;
 
     text-transform: uppercase;
+
+    letter-spacing: 1px;
 }
+
 
 
 /* ══════════════════════════════════════════════
@@ -252,180 +350,153 @@ body {
     grid-template-columns:
         repeat(7, 1fr);
 
-    gap: 7px;
+    gap: 6px;
 }
 
 
+
 /* ══════════════════════════════════════════════
-   CASES DES JOURS
+   JOUR
    ══════════════════════════════════════════════ */
 
 .day {
 
-    min-height: 125px;
+    min-height: 105px;
 
-    padding: 10px;
+    background: #fffefa;
 
-    background: #faf7f1;
+    border: 1px solid #eadde1;
 
-    border: 1px solid #d7c9d1;
+    border-radius: 10px;
+
+    padding: 8px;
+
+    cursor: pointer;
 
     position: relative;
 
     transition:
-        border-color 0.25s,
-        background 0.25s,
-        transform 0.25s;
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
 }
+
 
 .day:hover {
 
-    border-color: #a98aad;
-
-    background: #f4edf3;
+    background: #fff6f9;
 
     transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 14px
+        rgba(88, 48, 64, 0.10);
 }
 
 
-/* Numéro */
+.day.other-month {
+
+    opacity: 0.28;
+
+    cursor: default;
+}
+
 
 .day-number {
 
-    font-size: 19px;
+    font-size: 16px;
 
-    color: #5d4d61;
+    color: #5b3b49;
 
-    margin-bottom: 7px;
+    font-weight: 600;
 }
 
-
-/* Jours hors mois */
-
-.other-month {
-
-    opacity: 0.35;
-}
 
 
 /* ══════════════════════════════════════════════
    AUJOURD'HUI
    ══════════════════════════════════════════════ */
 
-.today {
+.day.today {
 
-    border-color: #9773a1;
+    border:
+        2px solid #b56d89;
 
-    background:
-        linear-gradient(
-            145deg,
-            #f6edf7,
-            #eee3f0
-        );
-
-    box-shadow:
-        inset 0 0 15px
-        rgba(150, 115, 160, 0.15);
+    background: #fff3f7;
 }
 
-.today .day-number {
 
-    color: #704a79;
+.day.today .day-number {
 
-    font-weight: 700;
+    color: #9a4e6c;
 }
+
 
 
 /* ══════════════════════════════════════════════
-   ÉVÉNEMENTS
+   SYMBOLES DES ÉVÉNEMENTS
    ══════════════════════════════════════════════ */
 
 .event {
 
-    padding: 6px 8px;
+    margin-top: 14px;
 
-    margin-top: 6px;
+    text-align: center;
 
-    font-size: 14px;
+    font-size: 20px;
 
-    border-left: 4px solid;
+    line-height: 1;
 
-    line-height: 1.2;
+    font-family: serif;
 
-    border-radius: 2px;
+    overflow: hidden;
 
-    background: rgba(255, 255, 255, 0.65);
+    white-space: nowrap;
+
+    color: #b56d89;
 }
 
 
-/* ══════════════════════════════════════════════
-   COURS — MAUVE
-   ══════════════════════════════════════════════ */
 
-.event.course {
+/* COULEURS */
 
-    border-color: #76517f;
+.event.econ60801 {
 
-    background: #e8dbea;
-
-    color: #54385d;
+    color: #d15f8b;
 }
 
 
-/* ══════════════════════════════════════════════
-   ÉTUDE — BLEU GRIS
-   ══════════════════════════════════════════════ */
+.event.econ60803 {
+
+    color: #9678c7;
+}
+
+
+.event.econ60804 {
+
+    color: #7b7d87;
+}
+
 
 .event.study {
 
-    border-color: #64788a;
-
-    background: #dce5ea;
-
-    color: #405564;
+    color: #b8799a;
 }
 
-
-/* ══════════════════════════════════════════════
-   EXERCICES — ROSE POUDRÉ
-   ══════════════════════════════════════════════ */
 
 .event.exercise {
 
-    border-color: #a86f86;
-
-    background: #ecdce3;
-
-    color: #70465a;
+    color: #b88a58;
 }
 
-
-/* ══════════════════════════════════════════════
-   EXAMEN — BORDEAUX
-   ══════════════════════════════════════════════ */
 
 .event.exam {
 
-    border-color: #824b59;
+    color: #54283d;
 
-    background: #ead7da;
-
-    color: #63343f;
+    font-size: 22px;
 }
 
-
-/* ══════════════════════════════════════════════
-   TRAVAIL — VERT SAUGE
-   ══════════════════════════════════════════════ */
-
-.event.assignment {
-
-    border-color: #75836e;
-
-    background: #e1e6dc;
-
-    color: #4d5b47;
-}
 
 
 /* ══════════════════════════════════════════════
@@ -440,26 +511,29 @@ body {
 
     text-align: center;
 
-    border-top:
-        1px solid #b9a7b5;
+    background:
+        rgba(255, 250, 252, 0.75);
 
-    border-bottom:
-        1px solid #b9a7b5;
+    border:
+        1px solid #dbc8d0;
+
+    border-radius: 15px;
 }
+
 
 .legend h3 {
 
-    margin: 0 0 15px;
+    margin-top: 0;
 
     font-family:
-        "Playfair Display", serif;
-
-    color: #624e68;
-
-    font-size: 21px;
+        "Playfair Display",
+        serif;
 
     font-weight: 500;
+
+    color: #5b3948;
 }
+
 
 .legend-items {
 
@@ -469,8 +543,9 @@ body {
 
     flex-wrap: wrap;
 
-    gap: 22px;
+    gap: 15px 25px;
 }
+
 
 .legend-items span {
 
@@ -478,48 +553,256 @@ body {
 
     align-items: center;
 
-    gap: 7px;
+    gap: 6px;
 
-    color: #6e6071;
-
-    font-size: 16px;
+    font-size: 15px;
 }
 
 
-/* ══════════════════════════════════════════════
-   PETITS POINTS DE LA LÉGENDE
-   ══════════════════════════════════════════════ */
-
 .dot {
 
-    width: 9px;
+    width: 11px;
 
-    height: 9px;
+    height: 11px;
 
     border-radius: 50%;
 
     display: inline-block;
 }
 
-.dot.course {
-    background: #76517f;
+
+.dot.econ60801 {
+    background: #d15f8b;
 }
+
+
+.dot.econ60803 {
+    background: #9678c7;
+}
+
+
+.dot.econ60804 {
+    background: #7b7d87;
+}
+
 
 .dot.study {
-    background: #64788a;
+    background: #b8799a;
 }
+
 
 .dot.exercise {
-    background: #a86f86;
+    background: #b88a58;
 }
+
 
 .dot.exam {
-    background: #824b59;
+    background: #54283d;
 }
 
-.dot.assignment {
-    background: #75836e;
+
+
+/* ══════════════════════════════════════════════
+   MODAL
+   ══════════════════════════════════════════════ */
+
+.event-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(45, 25, 35, 0.55);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.25s;
 }
+
+
+.event-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-content {
+
+    width: min(560px, 100%);
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background: #fffdf9;
+
+    border:
+        2px solid #d4bac4;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 60px
+        rgba(35, 18, 26, 0.35);
+}
+
+
+.close-modal {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #704456;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+.modal-ornament {
+
+    text-align: center;
+
+    color: #a35775;
+
+    font-size: 23px;
+
+    margin-bottom: 8px;
+}
+
+
+#modalDate {
+
+    text-align: center;
+
+    margin: 0 0 25px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: #4d303d;
+
+    text-transform: capitalize;
+}
+
+
+.modal-event {
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    border-left: 5px solid;
+
+    border-radius: 8px;
+
+    background: #faf2f5;
+}
+
+
+.modal-event h4 {
+
+    margin: 0 0 6px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 18px;
+}
+
+
+.modal-event p {
+
+    margin: 3px 0;
+
+    color: #684957;
+
+    font-size: 16px;
+}
+
+
+.modal-event.econ60801 {
+
+    border-color: #d15f8b;
+
+    background: #fff0f5;
+}
+
+
+.modal-event.econ60803 {
+
+    border-color: #9678c7;
+
+    background: #f4f0fb;
+}
+
+
+.modal-event.econ60804 {
+
+    border-color: #7b7d87;
+
+    background: #f1f1f3;
+}
+
+
+.modal-event.exam {
+
+    border-color: #54283d;
+
+    background: #f4e9ee;
+}
+
+
+.modal-event.study {
+
+    border-color: #b8799a;
+}
+
+
+.modal-event.exercise {
+
+    border-color: #b88a58;
+}
+
+
+.modal-bottom {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #a35775;
+}
+
 
 
 /* ══════════════════════════════════════════════
@@ -530,370 +813,135 @@ footer {
 
     text-align: center;
 
-    margin-top: 30px;
+    margin-top: 25px;
 
-    color: #776879;
+    color: #765263;
 
-    font-size: 16px;
+    font-size: 15px;
 
     letter-spacing: 1px;
 }
 
+
 footer span {
 
-    color: #85668d;
+    color: #a35775;
 
-    margin: 0 8px;
+    margin: 0 5px;
 }
 
 
+
 /* ══════════════════════════════════════════════
-   MOBILE
+   📱 TÉLÉPHONE
    ══════════════════════════════════════════════ */
 
 @media (max-width: 700px) {
 
+    .calendar-container {
+
+        width: 96%;
+
+        margin:
+            45px auto;
+    }
+
+
     .calendar {
-        padding: 12px;
+
+        padding: 10px;
+
+        border-radius: 13px;
     }
 
-    .day {
 
-        min-height: 90px;
-
-        padding: 6px;
-    }
-
-    .day-number {
-        font-size: 15px;
-    }
-
-    .event {
+    .weekdays div {
 
         font-size: 11px;
 
-        padding: 4px;
+        padding: 5px 1px;
     }
 
-    .weekdays div {
-        font-size: 12px;
-    }
-
-    .calendar-top h2 {
-        font-size: 24px;
-    }
-
-    .legend-items {
-        gap: 12px;
-    }
-}
-```css
-/* ══════════════════════════════════════════════════════════════
-   ♡ CALENDRIER — PALETTE VICTORIENNE GOTHIQUE ♡
-   Crème · Rose poudré · Lavande · Gris perle · Bordeaux
-   ══════════════════════════════════════════════════════════════ */
-
-
-/* ══════════════════════════════════════════════════════════════
-   🤍 CADRE PRINCIPAL DU CALENDRIER
-   ══════════════════════════════════════════════════════════════ */
-
-.calendar {
-    background: #fffaf5;
-    border: 2px solid #eaded4;
-    box-shadow:
-        0 8px 30px rgba(80, 50, 60, 0.12),
-        inset 0 0 25px rgba(255, 255, 255, 0.7);
-}
-
-
-/* Petit espace entre les cases */
-
-.calendar-days {
-    gap: 5px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   📅 CASES DES JOURS
-   ══════════════════════════════════════════════════════════════ */
-
-.day {
-    background: #fffdf9;
-    border: 1px solid #eadfd7;
-    border-radius: 8px;
-
-    min-height: 105px;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-/* Petit effet au passage de la souris */
-
-.day:hover {
-    background: #fff8f5;
-    border-color: #d8bfc4;
-    transform: translateY(-1px);
-}
-
-
-/* Jours des mois voisins */
-
-.day.other-month {
-    background: #f5eee9;
-    border-color: #eee4de;
-    opacity: 0.55;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   🔢 NUMÉROS DES JOURS
-   ══════════════════════════════════════════════════════════════ */
-
-.day-number {
-    color: #55434a;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 17px;
-    font-weight: 600;
-}
-
-
-/* Aujourd'hui */
-
-.day.today {
-    background: #fff1f4;
-    border: 2px solid #c995a4;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   🩷 ECON 60801 — ROSE POUDRÉ
-   ══════════════════════════════════════════════════════════════ */
-
-.event.course {
-    border-radius: 6px;
-    padding: 6px 8px;
-    margin-top: 6px;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 600;
-
-    background: #f3d8df;
-    color: #633d49;
-    border-left: 4px solid #b9788c;
-
-    box-shadow: 0 2px 5px rgba(90, 50, 60, 0.08);
-}
-
-
-/* ECON 60803 — lavande */
-
-.event.course:nth-of-type(2) {
-    background: #e5def2;
-    color: #514467;
-    border-left-color: #9582b8;
-}
-
-
-/* ECON 60804 — gris perle */
-
-.event.course:nth-of-type(3) {
-    background: #e3e1e5;
-    color: #4e4a52;
-    border-left-color: #8d8892;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   🖤 EXAMENS — BORDEAUX / PRUNE
-   ══════════════════════════════════════════════════════════════ */
-
-.event.exam {
-    border-radius: 6px;
-    padding: 7px 8px;
-    margin-top: 7px;
-
-    background: #ead1d9;
-    color: #542632;
-
-    border-left: 4px solid #783747;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 700;
-
-    box-shadow:
-        0 2px 6px rgba(70, 30, 40, 0.12);
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   🌸 ÉTUDES
-   ══════════════════════════════════════════════════════════════ */
-
-.event.study {
-    background: #f5e5ec;
-    color: #674b58;
-    border-left: 4px solid #c89aaa;
-
-    border-radius: 6px;
-    padding: 6px 8px;
-    margin-top: 6px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   ✏️ EXERCICES
-   ══════════════════════════════════════════════════════════════ */
-
-.event.exercise {
-    background: #eee7f5;
-    color: #5d506c;
-    border-left: 4px solid #a898bc;
-
-    border-radius: 6px;
-    padding: 6px 8px;
-    margin-top: 6px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   💼 TRAVAIL / ASSIGNMENT
-   ══════════════════════════════════════════════════════════════ */
-
-.event.assignment {
-    background: #eee9df;
-    color: #62594b;
-    border-left: 4px solid #a99a7c;
-
-    border-radius: 6px;
-    padding: 6px 8px;
-    margin-top: 6px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   ♡ LÉGENDE
-   ══════════════════════════════════════════════════════════════ */
-
-.legend {
-    background: #fffaf5;
-    border: 1px solid #eaded4;
-    color: #5b4850;
-}
-
-
-/* Petits points de la légende */
-
-.dot.course {
-    background: #b9788c;
-}
-
-.dot.study {
-    background: #c89aaa;
-}
-
-.dot.exercise {
-    background: #a898bc;
-}
-
-.dot.exam {
-    background: #783747;
-}
-
-.dot.assignment {
-    background: #a99a7c;
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   📱 VERSION TÉLÉPHONE
-   ══════════════════════════════════════════════════════════════ */
-
-@media (max-width: 700px) {
-
-    .calendar {
-        padding: 10px;
-        border-radius: 12px;
-    }
 
     .calendar-days {
+
         gap: 3px;
     }
 
+
     .day {
-        min-height: 85px;
+
+        min-height: 62px;
+
         padding: 5px;
-        border-radius: 6px;
+
+        border-radius: 7px;
     }
+
 
     .day-number {
-        font-size: 15px;
+
+        font-size: 13px;
     }
 
-    .event.course,
-    .event.study,
-    .event.exercise,
-    .event.exam,
-    .event.assignment {
 
-        font-size: 11px;
-        line-height: 1.15;
+    .event {
 
-        padding: 5px 4px;
-        margin-top: 4px;
+        margin-top: 9px;
 
-        border-left-width: 3px;
-
-        overflow-wrap: anywhere;
-    }
-
-    .weekdays {
-        font-size: 12px;
-    }
-
-    .calendar-top h2 {
-        font-size: 22px;
-    }
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   📱 TRÈS PETITS ÉCRANS
-   ══════════════════════════════════════════════════════════════ */
-
-@media (max-width: 430px) {
-
-    .calendar {
-        padding: 6px;
-    }
-
-    .day {
-        min-height: 75px;
-        padding: 4px;
-    }
-
-    .day-number {
         font-size: 14px;
     }
 
-    .event.course,
-    .event.study,
-    .event.exercise,
-    .event.exam,
-    .event.assignment {
-        font-size: 9px;
-        padding: 4px 3px;
+
+    .event.exam {
+
+        font-size: 16px;
     }
 
-    .weekdays {
-        font-size: 10px;
+
+    #monthYear {
+
+        font-size: 22px;
     }
+
+
+    .nav-button {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 14px;
+    }
+
+
+    .legend {
+
+        padding: 15px 8px;
+    }
+
+
+    .legend-items {
+
+        gap: 9px 14px;
+    }
+
+
+    .legend-items span {
+
+        font-size: 13px;
+    }
+
+
+    .floating-heart {
+
+        display: none;
+    }
+
+
+    .modal-content {
+
+        padding: 25px 18px;
+    }
+
 }
