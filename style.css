@@ -1,19 +1,30 @@
 ```css
+/* ╔══════════════════════════════════════════════╗
+   🖤🪻 VICTORIAN MAUVE STUDY CALENDAR
+   Grey Mauve • Powder Mauve • Black
+   ╚══════════════════════════════════════════════╝ */
+
+
 * {
     box-sizing: border-box;
 }
+
+
+/* ══════════════════════════════════════════════
+   🌫️ FOND PRINCIPAL
+   ══════════════════════════════════════════════ */
 
 body {
     margin: 0;
     min-height: 100vh;
 
     background:
-        radial-gradient(
-            circle at top,
-            #c8bbc9 0%,
-            #b2a2b5 35%,
-            #8d7d91 70%,
-            #625765 100%
+        linear-gradient(
+            135deg,
+            #c9bdca 0%,
+            #b9a9bc 35%,
+            #a291a6 65%,
+            #89788d 100%
         );
 
     color: #29232b;
@@ -21,33 +32,50 @@ body {
     font-family: "Cormorant Garamond", serif;
 }
 
+
+/* ══════════════════════════════════════════════
+   🕸️ DENTELLE
+   ══════════════════════════════════════════════ */
+
 .lace {
     height: 18px;
+
     background:
         repeating-linear-gradient(
             90deg,
             transparent 0px,
             transparent 7px,
-            #c9b3d8 8px,
+            #e0d4e1 8px,
             transparent 9px,
             transparent 16px
         );
-    opacity: 0.35;
+
+    opacity: 0.65;
 }
 
 .lace-top {
-    border-bottom: 1px solid #a98bbd;
+    border-bottom: 1px solid #796a7d;
 }
 
 .lace-bottom {
     margin-top: 35px;
-    border-top: 1px solid #a98bbd;
+    border-top: 1px solid #796a7d;
 }
+
+
+/* ══════════════════════════════════════════════
+   🖤 CONTENEUR
+   ══════════════════════════════════════════════ */
 
 .calendar-container {
     width: min(1150px, 94%);
     margin: 45px auto;
 }
+
+
+/* ══════════════════════════════════════════════
+   🪻 TITRE
+   ══════════════════════════════════════════════ */
 
 .header {
     text-align: center;
@@ -56,82 +84,128 @@ body {
 
 .header h1 {
     margin: 12px 0 3px;
+
     font-family: "Playfair Display", serif;
+
     font-size: clamp(38px, 6vw, 65px);
+
     font-weight: 500;
+
     letter-spacing: 3px;
-    color: #e4d1eb;
-    text-shadow: 0 0 15px rgba(201, 179, 216, 0.25);
+
+    color: #302934;
+
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.25);
 }
 
 .subtitle {
     margin: 0;
+
     font-size: 18px;
+
     letter-spacing: 3px;
-    color: #a995aa;
+
+    color: #514652;
+
     text-transform: lowercase;
 }
 
 .ornament {
-    color: #cbb4d8;
+    color: #514354;
+
     font-size: 24px;
+
     letter-spacing: 6px;
 }
 
+
+/* ══════════════════════════════════════════════
+   🖤 GRAND CALENDRIER
+   ══════════════════════════════════════════════ */
+
 .calendar {
+
     background:
         linear-gradient(
             145deg,
-            rgba(53, 45, 57, 0.94),
-            rgba(38, 32, 42, 0.96)
+            #514656 0%,
+            #49404d 50%,
+            #3e3542 100%
         );
 
-    border: 1px solid #75677a;
+    border: 1px solid #a99aaa;
 
     box-shadow:
         0 20px 60px rgba(45, 35, 50, 0.35),
-        inset 0 0 40px rgba(220, 205, 225, 0.04);
+        inset 0 0 50px rgba(230, 220, 235, 0.06);
 
     padding: 28px;
 }
-    border: 1px solid #765c82;
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.6),
-        inset 0 0 40px rgba(188, 158, 203, 0.03);
-    padding: 28px;
-}
+
+
+/* ══════════════════════════════════════════════
+   🌙 NAVIGATION DES MOIS
+   ══════════════════════════════════════════════ */
 
 .calendar-top {
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     margin-bottom: 28px;
+
     text-align: center;
 }
 
 .calendar-top h2 {
+
     margin: 0;
+
     font-family: "Playfair Display", serif;
+
     font-size: 32px;
+
     font-weight: 500;
-    color: #ddc9e5;
+
+    color: #e1d6e3;
+
     text-transform: capitalize;
 }
 
 .little-decoration {
+
     margin: 2px 0 0;
-    color: #b99bc8;
+
+    color: #c4b0c8;
+
     font-size: 18px;
 }
 
+
+/* ══════════════════════════════════════════════
+   ❮ ❯ BOUTONS
+   ══════════════════════════════════════════════ */
+
 .nav-button {
+
     width: 45px;
+
     height: 45px;
-    border: 1px solid #765c82;
-    background: #17121b;
-    color: #d8c0e2;
+
+    border: 1px solid #9c899f;
+
+    background: #332b36;
+
+    color: #e0d2e2;
+
     font-size: 18px;
+
     cursor: pointer;
+
     transition:
         background 0.25s,
         transform 0.25s,
@@ -139,39 +213,74 @@ body {
 }
 
 .nav-button:hover {
-    background: #3b2b43;
-    border-color: #c7a9d5;
+
+    background: #66576a;
+
+    border-color: #d1bed5;
+
     transform: translateY(-2px);
 }
 
+
+/* ══════════════════════════════════════════════
+   📅 JOURS DE LA SEMAINE
+   ══════════════════════════════════════════════ */
+
 .weekdays {
+
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    border-bottom: 1px solid #604b69;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    border-bottom: 1px solid #8b798e;
+
     margin-bottom: 8px;
 }
 
 .weekdays div {
+
     padding: 12px 5px;
+
     text-align: center;
-    color: #bca6c5;
+
+    color: #d4c6d7;
+
     font-size: 17px;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
 }
 
+
+/* ══════════════════════════════════════════════
+   🪻 CASES
+   ══════════════════════════════════════════════ */
+
 .calendar-days {
+
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
     gap: 7px;
 }
 
 .day {
+
     min-height: 125px;
+
     padding: 10px;
-    background: rgba(20, 17, 24, 0.8);
-    border: 1px solid #3d3043;
+
+    background:
+        rgba(61, 52, 65, 0.88);
+
+    border: 1px solid #756779;
+
     position: relative;
+
     transition:
         border-color 0.25s,
         background 0.25s,
@@ -179,164 +288,268 @@ body {
 }
 
 .day:hover {
-    border-color: #9878a6;
-    background: #241c29;
+
+    border-color: #c0acc3;
+
+    background: #625568;
+
     transform: translateY(-2px);
 }
 
+
+/* ══════════════════════════════════════════════
+   🔢 NUMÉROS
+   ══════════════════════════════════════════════ */
+
 .day-number {
+
     font-size: 19px;
-    color: #d8c8dc;
+
+    color: #ded3df;
+
     margin-bottom: 7px;
 }
 
 .other-month {
-    opacity: 0.25;
+
+    opacity: 0.3;
 }
 
+
+/* ══════════════════════════════════════════════
+   ✨ AUJOURD'HUI
+   ══════════════════════════════════════════════ */
+
 .today {
-    border-color: #c5a5d2;
-    box-shadow: inset 0 0 15px rgba(197, 165, 210, 0.08);
+
+    border-color: #d4bfd8;
+
+    box-shadow:
+        inset 0 0 18px rgba(218, 199, 222, 0.12);
 }
 
 .today .day-number {
-    color: #e5cfee;
+
+    color: #f0e5f1;
+
     font-weight: 700;
 }
 
+
+/* ══════════════════════════════════════════════
+   🎓 ACTIVITÉS
+   ══════════════════════════════════════════════ */
+
 .event {
+
     padding: 5px 7px;
+
     margin-top: 5px;
+
     font-size: 14px;
+
     border-left: 3px solid;
-    background: rgba(255, 255, 255, 0.04);
+
+    background:
+        rgba(240, 230, 242, 0.06);
+
     line-height: 1.2;
 }
 
 .event.course {
-    border-color: #c8afd4;
-    color: #decce5;
+
+    border-color: #d5bfd9;
+
+    color: #eadfed;
 }
 
 .event.study {
-    border-color: #9c84aa;
-    color: #cbb9d2;
+
+    border-color: #b8a1bc;
+
+    color: #d9cbdc;
 }
 
 .event.exercise {
-    border-color: #b89ac7;
-    color: #d2bddd;
+
+    border-color: #c5a9ca;
+
+    color: #e1d1e4;
 }
 
 .event.exam {
-    border-color: #e0c0dc;
-    color: #ead3e6;
+
+    border-color: #e2c8df;
+
+    color: #f0dfea;
 }
 
 .event.assignment {
-    border-color: #8c7198;
-    color: #c0abc8;
+
+    border-color: #a58cab;
+
+    color: #d1bfd5;
 }
 
+
+/* ══════════════════════════════════════════════
+   ♡ LÉGENDE
+   ══════════════════════════════════════════════ */
+
 .legend {
+
     margin-top: 25px;
+
     padding: 20px;
+
     text-align: center;
-    border-top: 1px solid #4f3d58;
-    border-bottom: 1px solid #4f3d58;
+
+    border-top: 1px solid #8b798e;
+
+    border-bottom: 1px solid #8b798e;
 }
 
 .legend h3 {
+
     margin: 0 0 15px;
+
     font-family: "Playfair Display", serif;
-    color: #d7c1df;
+
+    color: #3b303e;
+
     font-size: 21px;
+
     font-weight: 500;
 }
 
 .legend-items {
+
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 22px;
 }
 
 .legend-items span {
+
     display: flex;
+
     align-items: center;
+
     gap: 7px;
-    color: #aa9aaa;
+
+    color: #4d414f;
+
     font-size: 16px;
 }
 
+
+/* ══════════════════════════════════════════════
+   ● PETITS POINTS
+   ══════════════════════════════════════════════ */
+
 .dot {
+
     width: 9px;
+
     height: 9px;
+
     border-radius: 50%;
+
     display: inline-block;
 }
 
 .dot.course {
-    background: #c8afd4;
+    background: #d5bfd9;
 }
 
 .dot.study {
-    background: #9c84aa;
+    background: #b8a1bc;
 }
 
 .dot.exercise {
-    background: #b89ac7;
+    background: #c5a9ca;
 }
 
 .dot.exam {
-    background: #e0c0dc;
+    background: #e2c8df;
 }
 
 .dot.assignment {
-    background: #8c7198;
+    background: #a58cab;
 }
 
+
+/* ══════════════════════════════════════════════
+   🦢 FOOTER
+   ══════════════════════════════════════════════ */
+
 footer {
+
     text-align: center;
+
     margin-top: 30px;
-    color: #8f8094;
+
+    color: #4e424f;
+
     font-size: 16px;
+
     letter-spacing: 1px;
 }
 
 footer span {
-    color: #bda2c8;
+
+    color: #66556a;
+
     margin: 0 8px;
 }
 
+
+/* ══════════════════════════════════════════════
+   📱 MOBILE
+   ══════════════════════════════════════════════ */
+
 @media (max-width: 700px) {
+
     .calendar {
+
         padding: 12px;
     }
 
     .day {
+
         min-height: 90px;
+
         padding: 6px;
     }
 
     .day-number {
+
         font-size: 15px;
     }
 
     .event {
+
         font-size: 11px;
+
         padding: 4px;
     }
 
     .weekdays div {
+
         font-size: 12px;
     }
 
     .calendar-top h2 {
+
         font-size: 24px;
     }
 
     .legend-items {
+
         gap: 12px;
     }
 }
