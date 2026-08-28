@@ -316,6 +316,5 @@ nextMonth.addEventListener(
 
 
 /* Afficher le calendrier */
-document.body.style.background = "hotpink";
 renderCalendar();
 ```
