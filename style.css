@@ -10,13 +10,13 @@ body {
     background:
         radial-gradient(
             circle at top,
-            #e8dff0 0%,
-            #d8c7e1 28%,
-            #b9a1c5 58%,
-            #75617d 100%
+            #c8bbc9 0%,
+            #b2a2b5 35%,
+            #8d7d91 70%,
+            #625765 100%
         );
 
-    color: #211b24;
+    color: #29232b;
 
     font-family: "Cormorant Garamond", serif;
 }
