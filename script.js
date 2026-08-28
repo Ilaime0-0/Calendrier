@@ -11,60 +11,319 @@ let currentDate = new Date(2026, 7, 1);
    TES ACTIVITÉS
    ══════════════════════════════════════════════ */
 
+/* ══════════════════════════════════════════════
+   COURS + EXAMENS — AUTOMNE 2026
+   ══════════════════════════════════════════════ */
+
 const events = {
 
-    /* DIMANCHE 30 AOÛT */
-
-    "2026-08-30": [
-        {
-            title: "Math & statistiques · cours",
-            type: "course"
-        }
-    ],
-
-
-    /* LUNDI 31 AOÛT */
+    /* ══════════════════════════════════════════
+       AOÛT
+       ══════════════════════════════════════════ */
 
     "2026-08-31": [
         {
-            title: "Séminaire de macroéconomie internationale · 8h30–11h30",
+            title: "ECON 60801 · Séminaire de macro — 8h30–11h30",
             type: "course"
         }
     ],
 
 
-    /* MARDI 1 SEPTEMBRE */
+    /* ══════════════════════════════════════════
+       SEPTEMBRE
+       ══════════════════════════════════════════ */
 
     "2026-09-01": [
         {
-            title: "Cours · 12h00–15h00",
+            title: "ECON 60803 · 12h00–15h00",
             type: "course"
         }
     ],
-
-
-    /* MERCREDI 2 SEPTEMBRE */
 
     "2026-09-02": [
         {
-            title: "Cours · 8h30–11h30",
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-08": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-09-09": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-15": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-09-16": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-21": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-22": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-09-23": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-25": [
+        {
+            title: "ECON 60801 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-09-28": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-09-29": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
             type: "course"
         }
     ],
 
 
-    /* VENDREDI 4 SEPTEMBRE */
+    /* ══════════════════════════════════════════
+       OCTOBRE
+       ══════════════════════════════════════════ */
 
-    "2026-09-04": [
+    "2026-10-06": [
         {
-            title: "Test obligatoire · 10h00–11h00",
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-10-07": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-10-13": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-10-14": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-10-15": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-10-26": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-10-27": [
+        {
+            title: "ECON 60803 · INTRATRIMESTRIEL · 12h00",
+            type: "exam"
+        }
+    ],
+
+    "2026-10-28": [
+        {
+            title: "ECON 60804 · INTRATRIMESTRIEL · 8h30",
+            type: "exam"
+        }
+    ],
+
+
+    /* ══════════════════════════════════════════
+       NOVEMBRE
+       ══════════════════════════════════════════ */
+
+    "2026-11-02": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-03": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-11-04": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-09": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        },
+        {
+            title: "ATEL 66219 · 18h45–21h45 · Virtuel",
+            type: "course"
+        }
+    ],
+
+    "2026-11-10": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-11-11": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-16": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-17": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-11-18": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-23": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-24": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-11-25": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+    "2026-11-30": [
+        {
+            title: "ECON 60801 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+
+    /* ══════════════════════════════════════════
+       DÉCEMBRE
+       ══════════════════════════════════════════ */
+
+    "2026-12-01": [
+        {
+            title: "ECON 60803 · 12h00–15h00",
+            type: "course"
+        }
+    ],
+
+    "2026-12-02": [
+        {
+            title: "ECON 60804 · 8h30–11h30",
+            type: "course"
+        }
+    ],
+
+
+    /* ══════════════════════════════════════════
+       EXAMENS FINAUX
+       ══════════════════════════════════════════ */
+
+    "2026-12-04": [
+        {
+            title: "EXAMEN FINAL · ECON 60803 · 9h00",
+            type: "exam"
+        }
+    ],
+
+    "2026-12-14": [
+        {
+            title: "EXAMEN FINAL · ECON 60801 · 18h30",
+            type: "exam"
+        }
+    ],
+
+    "2026-12-15": [
+        {
+            title: "EXAMEN FINAL · ECON 60804 · 18h30",
             type: "exam"
         }
     ]
 
 };
-
-
 /* ══════════════════════════════════════════════
    NOMS DES MOIS
    ══════════════════════════════════════════════ */
