@@ -2,7 +2,7 @@
 Automne 2026 ❦ Msc Économie Appliquée
 
 # GUIDE COMPLET — PERSONNALISER MON CALENDRIER ♡
-
+https://ilaime0-0.github.io/Calendrier/
 Projet : My Study Calendar
 Style : Victorian · Gothic · Romantic · Pink · Cream · Lace · Hearts
 
